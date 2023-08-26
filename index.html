@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Rohit's Gallery</title>
     <link rel="icon" type="favicon" href="images/gallery.png">
     <style>
@@ -89,52 +90,153 @@
             opacity: 1;
             transform: scale(1.03);
         }
-        
+
+        /* LOADER */
+        .loader {
+        position: relative;
+        width: 2.5em;
+        height: 2.5em;
+        transform: rotate(165deg);
+        }
+
+        .loader:before, .loader:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        border-radius: 0.25em;
+        transform: translate(-50%, -50%);
+        }
+
+        .loader:before {
+        animation: before8 2s infinite;
+        }
+
+        .loader:after {
+        animation: after6 2s infinite;
+        }
+
+        @keyframes before8 {
+        0% {
+        width: 0.5em;
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        35% {
+        width: 2.5em;
+        box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        70% {
+        width: 0.5em;
+        box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+
+        100% {
+        box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(111, 202, 220, 0.75);
+        }
+        }
+
+        @keyframes after6 {
+        0% {
+        height: 0.5em;
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+
+        35% {
+        height: 2.5em;
+        box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 rgba(233, 169, 32, 0.75);
+        }
+
+        70% {
+        height: 0.5em;
+        box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em rgba(233, 169, 32, 0.75);
+        }
+
+        100% {
+        box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em rgba(233, 169, 32, 0.75);
+        }
+        }
+
+        .loader {
+        position: absolute;
+        top: calc(50% - 1.25em);
+        left: calc(50% - 1.25em);
+        }
+        #PRELOADER{
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            opacity: 1;
+            background-color: #fff;
+            z-index: 99;
+        }
     </style>
 </head>
 <body>
-    <div id="wrapper">
-        <div class="container">
-            <h1>My Gallery</h1>
-            <div class="gallery">
-                <figure class="card">
-                    <img class="card-img" src="images/image (1).jpeg" alt="">
-                    <!-- <figcaption>Image 1</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (2).jpeg" alt="">
-                    <!-- <figcaption>Image 2</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (3).jpeg" alt="">
-                    <!-- <figcaption>Image 3</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (4).jpeg" alt="">
-                    <!-- <figcaption>Image 4</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (5).jpeg" alt="">
-                    <!-- <figcaption>Image 5</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (6).jpeg" alt="">
-                    <!-- <figcaption>Image 6</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (7).jpeg" alt="">
-                    <!-- <figcaption>Image 7</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (8).jpg" alt="">
-                    <!-- <figcaption>Image 8</figcaption> -->
-                </figure>
-                <figure class="card">
-                    <img class="card-img" src="images/image (9).jpg" alt="">
-                    <!-- <figcaption>Image 9</figcaption> -->
-                </figure>
+    <SECTION id="PRELOADER">
+            <div class="loader"></div> 
+    </SECTION>
+    <SECTION id="CONTENT">
+        <div id="wrapper">
+            <div class="container">
+                <h1>My Gallery</h1>
+                <div class="gallery">
+                    <figure class="card">
+                        <img class="card-img" src="images/image (1).jpeg" alt="">
+                        <!-- <figcaption>Image 1</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (2).jpeg" alt="">
+                        <!-- <figcaption>Image 2</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (3).jpeg" alt="">
+                        <!-- <figcaption>Image 3</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (4).jpeg" alt="">
+                        <!-- <figcaption>Image 4</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (5).jpeg" alt="">
+                        <!-- <figcaption>Image 5</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (6).jpeg" alt="">
+                        <!-- <figcaption>Image 6</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (7).jpeg" alt="">
+                        <!-- <figcaption>Image 7</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (8).jpg" alt="">
+                        <!-- <figcaption>Image 8</figcaption> -->
+                    </figure>
+                    <figure class="card">
+                        <img class="card-img" src="images/image (9).jpg" alt="">
+                        <!-- <figcaption>Image 9</figcaption> -->
+                    </figure>
+                </div>
             </div>
         </div>
-    </div>
+    </SECTION>
+
+    <script>
+        // PRELOADER
+        $(window).on('load',function(){
+            $('#PRELOADER').delay(2000);
+            $('#PRELOADER').fadeOut(1000);
+            $('#CONTENT').fadeIn(1000);
+        });
+    </script>
 </body>
 </html>
